@@ -1,0 +1,17 @@
+.row {
+	@include clearfix;
+	margin-right: -50px;
+}
+
+.one-fourth {
+	width: 25%;
+	float: left;
+	box-sizing: border-box;
+	padding-right: 50px;
+}
+
+.three-fourths {
+	width: 75%;
+	float: left;
+	padding-right: 50px;
+}

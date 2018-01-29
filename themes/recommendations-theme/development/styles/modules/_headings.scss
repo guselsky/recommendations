@@ -1,0 +1,24 @@
+.heading {
+	margin: 0;
+	font-weight: 300;
+
+	&--large {
+    	font-size: 200%;
+	}
+
+	&--medium {
+		font-size: 150%;
+	}
+	
+	&--small {
+		font-size: 125%;
+	}
+
+	&--centered {
+		text-align: center;
+	}
+
+	&__profile-title {
+		padding-top: 10px;
+	}
+}

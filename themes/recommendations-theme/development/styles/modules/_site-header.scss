@@ -1,0 +1,48 @@
+.site-header {
+
+	@include clearfix;
+
+	&__title {
+		float: left;
+	}
+
+	&__navigation {
+		float: right;
+	}
+
+	&__form {
+		float: left;
+		margin-top: 30px;
+		margin-left: 30px;
+		// position: absolute;
+	}
+
+	&__form-input {
+		border-radius: 5px;
+		border-style: solid;
+			border: 1px solid $mainBlue;
+		height: 35px;
+		padding-left: 15px;
+		outline: 0;
+		width: 500px;
+
+		&:hover,
+		&:active,
+		&:focus {
+			// background-color: $lightGray;
+		border: 1px solid $mediumGray;
+			border-style: inset;
+		}
+	}
+	
+	&__input-container {
+		position: relative;
+	}
+
+	&__search-button  {
+		// position: relative;
+		position: absolute;
+		top: 5px;
+		right: 15px;
+	}
+}

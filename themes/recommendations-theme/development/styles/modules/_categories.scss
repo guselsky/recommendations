@@ -1,0 +1,25 @@
+.categories {
+		list-style: none;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		@include clearfix;
+
+	&__category-item {
+		padding: 15px;
+		width: 33%;
+		float: left;
+		// border: 1px dashed green;
+		background-color: #fff;
+		overflow: hidden;
+		text-align: center;
+	}
+
+	&__subtitle {
+	}
+}
+
+// Subtitle on Thing Pages
+.post-categories {
+	list-style: none;
+	margin-left: 15px;
+}

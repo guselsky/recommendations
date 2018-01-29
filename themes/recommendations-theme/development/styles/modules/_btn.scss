@@ -1,0 +1,54 @@
+.btn {
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 12px 24px;
+	border: none;
+	outline: none;
+
+	&--small {
+		padding: 4px 8px;
+	}
+
+	&--blue {
+		background-color: $mainBlue;
+		
+		a {
+			color: #fff;
+		}
+	}
+
+	&--blue:hover {
+    	background-color: darken($mainBlue, 10%);
+  	}
+
+  	&--blue:link,
+  	&--blue:visited {
+		background-color: $mainBlue;
+		color: #fff;
+	}
+
+	&--green {
+		background-color: $mainGreen;
+		
+		a {
+			color: #fff;
+		}
+	}
+
+	&--green:hover {
+    	background-color: darken($mainGreen, 10%);
+  	}
+
+  	&--green:link,
+  	&--green:visited {
+		background-color: $mainGreen;
+		color: #fff;
+	}
+
+	&--centered {
+		display: block;
+		margin: 0 auto;
+	}
+}

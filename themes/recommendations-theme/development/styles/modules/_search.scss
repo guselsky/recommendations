@@ -1,0 +1,68 @@
+.search-overlay {
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: fixed;
+	z-index: 110;
+	top: 90px;
+	left: 25%;
+	right: 25%;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, .96);
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(1.09);
+  	transition: opacity .3s, transform .3s, visibility .3s;
+ 	box-sizing: border-box;
+	
+	&--active {
+    	visibility: visible;
+    	opacity: 1;
+    	transform: scale(1);
+	}
+
+	&__close {
+	  position: absolute;
+	  top: 13px;
+	  right: 16px;
+	  cursor: pointer;
+	  transition: all .3s;
+	  background-color: #FFF;
+	  color: $mainRed;
+	  line-height: .7;
+	  @mixin atSmall {
+	    top: 18px;
+	    font-size: 2.1rem;
+	  }
+	  @mixin atMedium {
+	    top: 26px;
+	    font-size: 2.8rem;
+	  }
+	}
+
+	&__close:hover {
+	  opacity: 1;
+	}
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.spinner-loader {
+  margin-top: 45px;
+  margin-left: 45px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  border-top-color: black;
+  -webkit-animation: spin 1s infinite linear;
+          animation: spin 1s infinite linear;
+}

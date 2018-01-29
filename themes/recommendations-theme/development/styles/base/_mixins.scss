@@ -1,0 +1,46 @@
+/*Media Query Mixins*/
+
+@mixin bp-tinyBear {
+	@media only screen and (max-width: 400px) {
+		@content;
+	}
+}
+
+@mixin bp-babyBear {
+	@media only screen and (max-width: 900px) {
+		@content;
+	}
+}
+
+@mixin bp-mamaBear {
+	@media only screen and (max-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin fullMenu {
+	@media only screen and (min-width: 900px) {
+		@content;
+	}
+}
+
+@mixin doubleTitle {
+	@media only screen and (max-width: 333px) {
+		@content;
+	}
+}
+
+@mixin bp-papaBear {
+	@media only screen and (min-width: 1520px) {
+		@content;
+	}
+}
+
+/*Clearfix Mixin*/
+@mixin clearfix {
+	&::after {
+	content: "";
+	clear: both;
+	display: table;
+	}
+}
