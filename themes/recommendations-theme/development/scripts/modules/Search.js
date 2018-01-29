@@ -64,18 +64,24 @@ class Search {
 	}
 
 	getResults() {
-		// The ES6 arrow function does not change the value of the "this" keyword
-		$.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchInputField.val(), posts => {
-			
+
+		// Set up asynchronous JSON requests
+		$.when(
+			$.getJSON(recommendationsData.root_url + '/wp-jsondf/wp/v2/posts?search=' + this.searchInputField.val()),
+			$.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchInputField.val())
+			// An ES6 arrow function does not change the value of the "this" keyword, a normal function would
+			).then((posts, pages) => {
+			var combinedResults = posts[0].concat(pages[0]);
 			this.resultsDiv.html(`
 				<h2>General Information</h2>
-				${posts.length ? '<ul>' : '<p>Unfortunately your search didn\'t return any results</p>'}
-					${posts.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
-				${posts.length ? '</ul>' : ''}
+				${combinedResults.length ? '<ul>' : '<p>Unfortunately your search didn\'t return any results</p>'}
+					${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+				${combinedResults.length ? '</ul>' : ''}
 			`);
 			this.isSpinnerVisible = false;
+		}, () => {
+			this.resultsDiv.html('<p>Unexpected error; please try again or contact the admin.</p>')
 		});
-		// this.isSpinnerVisible = false;
 	}
 }
 
