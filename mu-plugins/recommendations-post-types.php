@@ -4,6 +4,8 @@ function recommendations_post_types() {
 
 	// Profile Post Type
 	register_post_type('profile', array(
+		// Add post type to REST api
+		'show_in_rest' => true,
 		'supports' => array('title', 'editor', 'thumbnail'),
 		// Set the slug of the profile page
 		'rewrite' => array('slug' => 'profiles'),

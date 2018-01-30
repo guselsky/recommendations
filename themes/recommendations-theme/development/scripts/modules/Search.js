@@ -67,7 +67,7 @@ class Search {
 
 		// Set up asynchronous JSON requests
 		$.when(
-			$.getJSON(recommendationsData.root_url + '/wp-jsondf/wp/v2/posts?search=' + this.searchInputField.val()),
+			$.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchInputField.val()),
 			$.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchInputField.val())
 			// An ES6 arrow function does not change the value of the "this" keyword, a normal function would
 			).then((posts, pages) => {
@@ -75,7 +75,7 @@ class Search {
 			this.resultsDiv.html(`
 				<h2>General Information</h2>
 				${combinedResults.length ? '<ul>' : '<p>Unfortunately your search didn\'t return any results</p>'}
-					${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+					${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a>${item.type == 'post' ? ` by ${item.authorName}` : ''}</li>`).join('')}
 				${combinedResults.length ? '</ul>' : ''}
 			`);
 			this.isSpinnerVisible = false;

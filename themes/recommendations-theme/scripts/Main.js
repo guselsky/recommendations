@@ -177,12 +177,12 @@ var Search = function () {
 			var _this = this;
 
 			// Set up asynchronous JSON requests
-			_jquery2.default.when(_jquery2.default.getJSON(recommendationsData.root_url + '/wp-jsondf/wp/v2/posts?search=' + this.searchInputField.val()), _jquery2.default.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchInputField.val())
+			_jquery2.default.when(_jquery2.default.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchInputField.val()), _jquery2.default.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchInputField.val())
 			// An ES6 arrow function does not change the value of the "this" keyword, a normal function would
 			).then(function (posts, pages) {
 				var combinedResults = posts[0].concat(pages[0]);
 				_this.resultsDiv.html('\n\t\t\t\t<h2>General Information</h2>\n\t\t\t\t' + (combinedResults.length ? '<ul>' : '<p>Unfortunately your search didn\'t return any results</p>') + '\n\t\t\t\t\t' + combinedResults.map(function (item) {
-					return '<li><a href="' + item.link + '">' + item.title.rendered + '</a></li>';
+					return '<li><a href="' + item.link + '">' + item.title.rendered + '</a>' + (item.type == 'post' ? ' by ' + item.authorName : '') + '</li>';
 				}).join('') + '\n\t\t\t\t' + (combinedResults.length ? '</ul>' : '') + '\n\t\t\t');
 				_this.isSpinnerVisible = false;
 			}, function () {
