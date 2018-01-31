@@ -49,28 +49,36 @@ function recommendationsSearchResults($data) {
 		if (get_post_type() == 'post' OR get_post_type() == 'page') {
 			array_push($results['generalInfo'], array(
 				'title' => get_the_title(),
-				'permalink' => get_the_permalink()
+				'permalink' => get_the_permalink(),
+				'postType' => get_post_type(),
+				'authorName' => get_the_author()
 			));			
 		}
 
 		if (get_post_type() == 'profile') {
 			array_push($results['profiles'], array(
 				'title' => get_the_title(),
-				'permalink' => get_the_permalink()
+				'permalink' => get_the_permalink(),
+				'postType' => get_post_type(),
+				'authorName' => get_the_author()
 			));			
 		}
 
 		if (get_post_type() == 'thing') {
 			array_push($results['things'], array(
 				'title' => get_the_title(),
-				'permalink' => get_the_permalink()
+				'permalink' => get_the_permalink(),
+				'postType' => get_post_type(),
+				'authorName' => get_the_author()
 			));			
 		}
 
 		if (get_post_type() == 'creator') {
 			array_push($results['creators'], array(
 				'title' => get_the_title(),
-				'permalink' => get_the_permalink()
+				'permalink' => get_the_permalink(),
+				'postType' => get_post_type(),
+				'authorName' => get_the_author()
 			));			
 		}
 	}

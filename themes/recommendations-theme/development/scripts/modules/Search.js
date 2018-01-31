@@ -65,23 +65,19 @@ class Search {
 
 	getResults() {
 
-		// Set up asynchronous JSON requests
-		$.when(
-			$.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchInputField.val()),
-			$.getJSON(recommendationsData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchInputField.val())
-			// An ES6 arrow function does not change the value of the "this" keyword, a normal function would
-			).then((posts, pages) => {
-			var combinedResults = posts[0].concat(pages[0]);
-			this.resultsDiv.html(`
-				<h2>General Information</h2>
-				${combinedResults.length ? '<ul>' : '<p>Unfortunately your search didn\'t return any results</p>'}
-					${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a>${item.type == 'post' ? ` by ${item.authorName}` : ''}</li>`).join('')}
-				${combinedResults.length ? '</ul>' : ''}
-			`);
-			this.isSpinnerVisible = false;
-		}, () => {
-			this.resultsDiv.html('<p>Unexpected error; please try again or contact the admin.</p>')
+		$.getJSON(recommendationsData.root_url + '/wp-json/recommendations/v1/search?term=' + this.searchInputField.val(), (results) => {
+			if (results.generalInfo != '' || results.profiles != '' || results.things != '' || results.creators != '') {
+				this.resultsDiv.html(`
+					<div>${results.generalInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a>${item.postType == 'post' || item.postType == 'page' ? ` by ${item.authorName}` : ''}</li>`).join('')}</div>
+					<div><ul>${results.profiles.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
+					<div><ul>${results.things.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
+					<div><ul>${results.creators.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
+				`);
+			} else {
+				this.resultsDiv.html(`<div>Unfortunately your search didn't return any results.</div>`);
+			}
 		});
+		this.isSpinnerVisible = false;
 	}
 }
 
