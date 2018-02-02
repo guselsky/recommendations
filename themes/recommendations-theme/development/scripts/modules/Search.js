@@ -5,6 +5,7 @@ class Search {
 		this.searchOverlay = $('.search-overlay');
 		this.resultsDiv = this.searchOverlay.find('.search-overlay__results');
 		this.searchInputField = $('.site-header__form-input');
+		this.closeButton = this.searchOverlay.find('.search-overlay__close');
 		// This prevents the closeOverlay method from repeatedly being called
 		this.isOverlayOpen = false;
 		this.isSpinnerVisible = false;
@@ -18,6 +19,7 @@ class Search {
 		this.searchInputField.on('keyup', this.openCloseOverlay.bind(this));
 		this.searchInputField.on('keydown', this.closeOverlay.bind(this));
 		this.searchInputField.on('keyup', this.typingLogic.bind(this));
+		this.closeButton.on('click', this.clickCloseOverlay.bind(this));
 	}
  
 	// Methods
@@ -33,6 +35,13 @@ class Search {
 
 	closeOverlay(e) {
 		if(e.keyCode == 27 && this.isOverlayOpen == true) {
+			this.searchOverlay.removeClass('search-overlay--active');
+			this.isOverlayOpen = false;
+		}
+	}
+
+	clickCloseOverlay() {
+		if (this.isOverlayOpen === true) {
 			this.searchOverlay.removeClass('search-overlay--active');
 			this.isOverlayOpen = false;
 		}
