@@ -4,33 +4,69 @@
 
 	&__title {
 		float: left;
+
+		@include mobileMenu {
+			float: none;
+			text-align: center;
+			margin: 15px 0 0 0;
+		}
+
+		@include tablet {
+			float: none;
+			width: 300px;
+			margin: 15px auto;
+		}
 	}
 
 	&__navigation {
 		float: right;
+
+		@include tablet {
+			float: none;
+			width: 320px;
+			margin: 0 auto;
+		}
 	}
 
 	&__form {
 		float: left;
 		margin-top: 30px;
 		margin-left: 30px;
-		// position: absolute;
+
+		@include tablet {
+			float: none;
+			margin: 0 auto;
+			width: 500px;
+		}
+
+		@include mobileMenu {
+			margin-top: 15px;
+			margin: 0 auto;
+			width: 300px;
+		}
 	}
 
 	&__form-input {
 		border-radius: 5px;
 		border-style: solid;
-			border: 1px solid $mainBlue;
+		border: 1px solid $mainBlue;
 		height: 35px;
 		padding-left: 15px;
 		outline: 0;
 		width: 500px;
 
+		@include tablet {
+			margin: 0 auto;
+		}
+		
+		@include mobileMenu {
+			width: 300px;
+		}
+
 		&:hover,
 		&:active,
 		&:focus {
-			// background-color: $lightGray;
-		border: 1px solid $mediumGray;
+			border: 1px solid $mediumGray;
 			border-style: inset;
 		}
 	}
@@ -40,9 +76,10 @@
 	}
 
 	&__search-button  {
-		// position: relative;
 		position: absolute;
 		top: 5px;
 		right: 15px;
+		background-color: #FFF;
+		border: none;
 	}
 }

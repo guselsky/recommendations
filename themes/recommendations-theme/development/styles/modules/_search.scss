@@ -48,6 +48,12 @@
 		margin-right: 15px;
 		margin-left: 15px;
 	}
+
+	&__results__item {
+		li a {
+			display: none !important;
+		}
+	}
 }
 
 @keyframes spin {
@@ -70,5 +76,5 @@
   border: 5px solid rgba(0, 0, 0, 0.2);
   border-top-color: black;
   -webkit-animation: spin 1s infinite linear;
-          animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
 }

@@ -33,8 +33,11 @@
 		</div><!-- .site-branding -->
 
 		<div class="site-header__form">
-			<div class="site-header__input-container"><input type="text" class="site-header__form-input" placeholder="Search for a person or a thing..." autofocus="autofocus">
-						<div class="site-header__search-button"><i class="fa fa-search" aria-hidden="true"></i></div></div>
+			<div class="site-header__input-container">
+				<!-- <input type="text" class="site-header__form-input" placeholder="Search for a person or a thing..." autofocus="autofocus"> -->
+				<?php get_search_form(); ?>
+				<!-- <div class="site-header__search-button"><i class="fa fa-search" aria-hidden="true"></i></div> -->
+			</div>
 		</div>
 
 		<!-- Search overlay -->

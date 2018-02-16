@@ -8,8 +8,8 @@ get_header(); ?>
 	<div class="page-banner" style="background-image: url(<?php echo get_theme_file_uri('/images/hero--large.jpg') ?>">		
 	<div class="page-banner__bg-image container-1200");">		
 
-		<h2 class="page-banner__title heading--large">Recommendations from the world's greatest minds...</h2><br>
-		<h3 class="page-banner__subtitle heading--medium">but also from normal people.</h3>
+		<h2 class="page-banner__title heading--large">Recommend things to your friends</h2><br>
+		<h3 class="page-banner__subtitle heading--medium">And see what other people recommend</h3>
 
 	</div><!-- page-banner__bg-image -->
 	</div><!-- page-banner -->
@@ -40,6 +40,8 @@ get_header(); ?>
 
 		<div class="container-1200">
 			<h3 class="heading--medium">View recommendations from these people</h3>
+			<div class="row">
+				
 			<?php 
 
 			$homepageProfiles = new WP_Query(array(
@@ -49,13 +51,16 @@ get_header(); ?>
 
 			while($homepageProfiles->have_posts()) {
 				$homepageProfiles->the_post(); ?>
-					<a href="<?php the_permalink(); ?>">
-						<h4 class="heading--small"><?php the_title(); ?></h4>
-					</a>
+					<div class="one-third">
+						<a href="<?php the_permalink(); ?>">
+							<h4 class="heading--small"><?php the_title(); ?></h4>
+						</a>
+					</div>
 				<?php
 			}
 			?>
 
+			</div>
 		</div>
 
 <?php

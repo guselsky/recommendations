@@ -76,14 +76,15 @@ class Search {
 
 		$.getJSON(recommendationsData.root_url + '/wp-json/recommendations/v1/search?term=' + this.searchInputField.val(), (results) => {
 			if (results.generalInfo != '' || results.profiles != '' || results.things != '' || results.creators != '') {
+				// clean this up
 				this.resultsDiv.html(`
-					<div>${results.generalInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a>${item.postType == 'post' || item.postType == 'page' ? ` by ${item.authorName}` : ''}</li>`).join('')}</div>
-					<div><ul>${results.profiles.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
-					<div><ul>${results.things.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
-					<div><ul>${results.creators.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
+					<div class="search-overlay__results__item><ul>${results.generalInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a>${item.postType == 'post' || item.postType == 'page' ? ` by ${item.authorName}` : ''}</li>`).join('')}</ul></div>
+					<div class="search-overlay__results__item><ul>${results.profiles.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
+					<div class="search-overlay__results__item><ul>${results.things.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
+					<div class="search-overlay__results__item><ul>${results.creators.map(item => `<li><a href="${item.permalink}">${item.title}</a>`)}</ul></div>
 				`);
 			} else {
-				this.resultsDiv.html(`<div>Unfortunately your search didn't return any results.</div>`);
+				this.resultsDiv.html(`<div class="search-overlay__results__item">Unfortunately your search didn't return any results.</div>`);
 			}
 		});
 		this.isSpinnerVisible = false;
