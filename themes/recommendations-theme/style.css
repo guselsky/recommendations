@@ -223,11 +223,24 @@ p {
   padding-top: 50px;
   height: 400px;
   margin-bottom: 30px; }
+  @media only screen and (max-width: 500px) {
+    .page-banner {
+      height: 300px; } }
   .page-banner__title {
     color: #fff; }
+    @media only screen and (max-width: 1200px) {
+      .page-banner__title {
+        margin-top: 100px;
+        text-align: center; } }
+    @media only screen and (max-width: 500px) {
+      .page-banner__title {
+        margin-top: 0; } }
   .page-banner__subtitle {
     color: #fff;
     margin-bottom: 50px; }
+    @media only screen and (max-width: 1200px) {
+      .page-banner__subtitle {
+        text-align: center; } }
 
 .site-header::after {
   content: "";
@@ -244,6 +257,7 @@ p {
   @media only screen and (max-width: 1200px) {
     .site-header__title {
       float: none;
+      text-align: center;
       width: 300px;
       margin: 15px auto; } }
 
@@ -310,6 +324,16 @@ p {
 .container-1200 {
   max-width: 1200px;
   margin: 0 auto; }
+  @media only screen and (max-width: 1200px) {
+    .container-1200 {
+      padding: 0 30px; } }
+  @media only screen and (max-width: 500px) {
+    .container-1200 {
+      padding: 0 15px; } }
+
+@media only screen and (max-width: 500px) {
+  .site-content {
+    margin-top: 30px; } }
 
 .btn {
   display: inline-block;
@@ -395,6 +419,9 @@ p {
     content: "";
     clear: both;
     display: table; }
+  @media only screen and (max-width: 1200px) {
+    .row {
+      margin-right: 0; } }
 
 .one-fourth {
   width: 25%;
@@ -402,11 +429,21 @@ p {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding-right: 50px; }
+  @media only screen and (max-width: 1200px) {
+    .one-fourth {
+      width: 100%;
+      padding-right: 0;
+      float: none; } }
 
 .three-fourths {
   width: 75%;
   float: left;
   padding-right: 50px; }
+  @media only screen and (max-width: 1200px) {
+    .three-fourths {
+      width: 100%;
+      padding-right: 0;
+      float: none; } }
 
 .one-third {
   width: 33.33%;
@@ -414,6 +451,11 @@ p {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding-right: 50px; }
+  @media only screen and (max-width: 1200px) {
+    .one-third {
+      width: 100%;
+      padding-right: 0;
+      float: none; } }
 
 .image-container img {
   max-width: 100%;

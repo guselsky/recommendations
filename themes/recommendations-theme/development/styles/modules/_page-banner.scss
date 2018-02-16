@@ -5,12 +5,29 @@
 	height: 400px;
 	margin-bottom: 30px;
 
+	@include mobileMenu {
+		height: 300px;
+	}
+
+
 	&__title {
 		color: #fff;
+		@include tablet {
+			margin-top: 100px;
+			text-align: center;
+		}
+
+		@include mobileMenu {
+			margin-top: 0;
+		}
 	}
 
 	&__subtitle {
 		color: #fff;
-		margin-bottom: 50px;		
+		margin-bottom: 50px;
+	
+		@include tablet {
+			text-align: center;
+		}
 	}
 }

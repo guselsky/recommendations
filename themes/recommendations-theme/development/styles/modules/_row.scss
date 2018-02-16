@@ -1,6 +1,10 @@
 .row {
 	@include clearfix;
 	margin-right: -50px;
+
+	@include tablet {
+		margin-right: 0;
+	}
 }
 
 .one-fourth {
@@ -8,12 +12,24 @@
 	float: left;
 	box-sizing: border-box;
 	padding-right: 50px;
+
+	@include tablet {
+		width: 100%;
+		padding-right: 0;
+		float: none;
+	}
 }
 
 .three-fourths {
 	width: 75%;
 	float: left;
 	padding-right: 50px;
+
+	@include tablet {
+		width: 100%;
+		padding-right: 0;
+		float: none;
+	}
 }
 
 .one-third {
@@ -21,4 +37,10 @@
 	float: left;
 	box-sizing: border-box;
 	padding-right: 50px;
+
+	@include tablet {
+		width: 100%;
+		padding-right: 0;
+		float: none;
+	}
 }
