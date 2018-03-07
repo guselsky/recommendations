@@ -34,7 +34,7 @@ function recommendations_post_types() {
 		// Set the slug of the things page
 		'rewrite' => array('slug' => 'things'),
 		'public' => true,
-		'taxonomies'  => array( 'category' ),
+		// 'taxonomies'  => array( 'category' ),
 		'has_archive' => true,
 		'labels' => array(
 			'name' => 'Things',

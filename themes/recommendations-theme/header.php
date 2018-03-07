@@ -52,7 +52,7 @@
 
 		<nav id="site-navigation" class="site-header__navigation">
 			<ul class="main-navigation">
-				<li class="main-navigation--non-register"><a href="#">How does it work?</a></li>
+				<li class="main-navigation--non-register"><a href="<?php echo site_url(). '/#how-it-works' ?>">How does it work?</a></li>
 				<li class="btn btn--small btn--blue user-registration-links__register"><a href="<?php echo site_url('/wp-login.php?action=register&redirect_to=' . get_permalink()); ?>">Register</a></li>
 				<li class="user-registration-links__login"><a class="btn btn--small btn--green" href="<?php echo wp_login_url(); ?>">Login</a></li>
 				<li class="user-registration-links__logout user-registration-links__logout--hidden"><a class="btn btn--small btn--blue" href="#">Logout</a></li>

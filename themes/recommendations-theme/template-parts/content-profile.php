@@ -23,7 +23,7 @@ $relatedThings = get_field('related_things'); ?>
 	</div>
 	<div class="three-fourths">		
 		<h3 class="heading--medium"><?php the_title(); ?>'s recommendations</h3>
-		<ul>
+		<ul class="recommendations-list">
 			
 		<?php 
 

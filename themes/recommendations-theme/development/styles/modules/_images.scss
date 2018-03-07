@@ -1,7 +1,15 @@
 .image-container {
+		margin: 30px 0;
 	img {
-		max-width: 100%;
+		width: 100%;
 		height: auto;
 		border-radius: 50%;
+	}
+
+	&--centered {
+		img {
+			margin: 0 auto;
+			display: block;
+		}
 	}
 }
