@@ -431,9 +431,10 @@ p {
   padding-right: 50px; }
   @media only screen and (max-width: 1200px) {
     .one-fourth {
-      width: 100%;
-      padding-right: 0;
-      float: none; } }
+      width: 33.3%; } }
+  @media only screen and (max-width: 500px) {
+    .one-fourth {
+      width: 50%; } }
 
 .three-fourths {
   width: 75%;

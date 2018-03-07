@@ -14,9 +14,13 @@
 	padding-right: 50px;
 
 	@include tablet {
-		width: 100%;
-		padding-right: 0;
-		float: none;
+		width: 33.3%;
+	}
+
+	@include mobileMenu {
+		width: 50%;
+		// padding-right: 0;
+		// float: none;
 	}
 }
 
