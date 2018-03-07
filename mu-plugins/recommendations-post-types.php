@@ -4,6 +4,9 @@ function recommendations_post_types() {
 
 	// Profile Post Type
 	register_post_type('profile', array(
+		// Make post type editable in user role plugin
+		'capability_type' => 'profile',
+		'map_meta_cap' => true,
 		// Add post type to REST api
 		'show_in_rest' => true,
 		'supports' => array('title', 'editor', 'thumbnail'),
@@ -24,6 +27,9 @@ function recommendations_post_types() {
 
 	// Thing Post Type
 	register_post_type('thing', array(
+		// Make post type editable in user role plugin
+		'capability_type' => 'thing',
+		'map_meta_cap' => true,
 		'supports' => array('title', 'editor', 'thumbnail'),
 		// Set the slug of the things page
 		'rewrite' => array('slug' => 'things'),
@@ -44,6 +50,9 @@ function recommendations_post_types() {
 
 	// Author Post Type
 	register_post_type('creator', array(
+		// Make post type editable in user role plugin
+		'capability_type' => 'creator',
+		'map_meta_cap' => true,
 		'supports' => array('title', 'editor', 'thumbnail'),
 		// Set the slug of the author page
 		'rewrite' => array('slug' => 'creators'),
